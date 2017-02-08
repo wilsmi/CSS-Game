@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+h1 {
+    margin: 0.5em 0 1em;
+}
+
+.nav-play {
+    padding-bottom: 20px;
+}
+
+
+/* Hide next button if checkbox is checked
+
+input[type=checkbox]:checked ~ .next {
+    display: none;
+}
+*/
+
+#grid {
+    margin: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#grid td {
+    border: 1px solid gray;
+}
+
+#grid input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    background: white;
+}
+
+#grid input[type="checkbox"]:checked {
+    background: black;
+    box-shadow: 0 0 0 99px black inset;
+}
