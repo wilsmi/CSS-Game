@@ -115,6 +115,7 @@ function $(selector, container) {
                     var checkbox = document.createElement('input');
                     checkbox.type = 'checkbox';
                     this.checkboxes[y][x] = checkbox;
+                    checkbox.coords = [x, y];
 
                     cell.appendChild(checkbox);
                     row.appendChild(cell);
@@ -127,6 +128,40 @@ function $(selector, container) {
             this.grid.addEventListener('change', function (evt) {
                 if (evt.target.nodeName.toLowerCase() == 'input') {
                     me.started = false;
+                }
+            });
+
+            this.grid.addEventListener('keyup', function (evt) {
+                var checkbox = evt.target;
+
+                if (checkbox.nodeName.toLowerCase() == 'input') {
+                    var coords = checkbox.coords;
+                    var x = coords[0];
+                    var y = coords[1];
+                    
+                    // Adds keyboard listener events to move with the keyboard
+                    switch (evt.keyCode) {
+                        case 37: // left
+                            if (x > 0) {
+                                me.checkboxes[y][x - 1].focus();
+                            }
+                            break;
+                        case 38: // up
+                            if (y > 0) {
+                                me.checkboxes[y - 1][x].focus();
+                            }
+                            break;
+                        case 39: // right
+                            if (x < me.size - 1) {
+                                me.checkboxes[y][x + 1].focus();
+                            }
+                            break;
+                        case 40: // bottom
+                            if (y < me.size - 1) {
+                                me.checkboxes[y + 1][x].focus();
+                            }
+                            break;
+                    }
                 }
             })
 
