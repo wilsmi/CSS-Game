@@ -178,12 +178,12 @@ function $(selector, container) {
 
 var lifeView = new LifeView(document.getElementById('grid'), 12);
 
+// Controller buttons that are wired to the view
 (function () {
 
     var buttons = {
-            next: $('button.next')
-        }
-        // Controller buttons that are wired to the view
+        next: $('button.next')
+    }
     buttons.next.addEventListener('click', function () {
         lifeView.next();
     });
