@@ -138,8 +138,9 @@ function $(selector, container) {
                     var coords = checkbox.coords;
                     var x = coords[0];
                     var y = coords[1];
-                    
+
                     // Adds keyboard listener events to move with the keyboard
+                    // me.checkboxes... causes it to stop at the edge of the grid
                     switch (evt.keyCode) {
                         case 37: // left
                             if (x > 0) {
