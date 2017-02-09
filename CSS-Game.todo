@@ -1,0 +1,6 @@
+These are some wrap up items for Conway's Game of Life per Lea Verou
+https://app.pluralsight.com/library/courses/play-by-play-lea-verou/table-of-contents
+
+Project Updates:
+        ☐ Add local storage to save the last state of the game
+        ☐ Add a button to clear the screen @low

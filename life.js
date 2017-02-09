@@ -200,9 +200,7 @@ function $(selector, container) {
                     this.checkboxes[y][x].checked = !!board[y][x];
                 }
             }
-
             // Everytime next runs, if it's autoplaying it schedules the next time it should run
-            // FIXME:[] Every time I press the button it re-runs this function and doubles the time
             if (this.autoplay) {
                 this.timer = setTimeout(function () {
                     me.next();
@@ -212,6 +210,7 @@ function $(selector, container) {
     };
 })();
 
+// Hard-coded board size - could be changed to use a slider and make it adjustable
 var lifeView = new LifeView(document.getElementById('grid'), 12);
 
 // Controller buttons that are wired to the view
@@ -225,11 +224,12 @@ var lifeView = new LifeView(document.getElementById('grid'), 12);
     });
 
     $('#autoplay').addEventListener('change', function () {
-        buttons.next.textContent = this.checked ? 'Start' : 'Next';
+        buttons.next.disabled = this.checked;
 
+        if (this.checked) {
         lifeView.autoplay = this.checked;
-
-        if (!this.checked) {
+        lifeView.next();
+        } else {
             clearTimeout(lifeView.timer);
         }
     });
